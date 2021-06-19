@@ -15,7 +15,9 @@
 "//".*$                         ;
 "extern"                        {return TEXTERN;}
 "return"                        {return TRETURN;}
+"return_void"                   {return TRETVOID;}
 "int"                           {return TINT_T;}
+"void"                          {return TVOID_T;}
 "if"                            {return TIF;}
 "else"                          {return TELSE;}
 [a-zA-Z_][a-zA-Z0-9_]*          {return TIDENTIFIER;}

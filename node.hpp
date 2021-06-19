@@ -232,6 +232,21 @@ public:
     virtual llvm::Value* codeGen(CodeGenContext& context) const;
 };
 
+class NReturnStatementVoid : public NStatement {
+public:
+    PNODE(const NExpression) expression;
+    NReturnStatementVoid(PNODE(const NExpression) expr) :
+    	expression(expr) {}
+        virtual void print() const{
+          std::cout<<'['<<std::endl;
+          printName();
+            std::cout << "Ignoring void expression: " << std::endl;
+            expression->print();
+          std::cout<<']'<<std::endl;
+        }
+    virtual llvm::Value* codeGen(CodeGenContext& context) const;
+};
+
 class NVariableDeclaration : public NStatement {
 public:
     PNODE(const NIdentifier) id;

@@ -182,8 +182,13 @@ llvm::Value* NReturnStatement::codeGen(CodeGenContext& context) const {
     std::cerr << "Generating return code for " << typeid(expression).name() << std::endl;
     llvm::Value *returnValue = expression->codeGen(context);
     llvm::ReturnInst::Create(context.MyContext, returnValue, context.currentBlock());
-    // after a return statement, no other statements should be produced;
-    // return nullptr to make caller aware of that fact
+    return nullptr;
+}
+
+llvm::Value* NReturnStatementVoid::codeGen(CodeGenContext& context) const {
+    std::cerr << "Generating return code for " << typeid(expression).name() << std::endl;
+    llvm::Value *returnValue = expression->codeGen(context);
+    llvm::ReturnInst::Create(context.MyContext, nullptr, context.currentBlock());
     return nullptr;
 }
 

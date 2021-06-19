@@ -28,7 +28,7 @@
    match our tokens.l lex file. We also define the node type
    they represent.
  */
-%token TINT_T
+%token TINT_T TVOID_T
 %token TIDENTIFIER
 %token<value> TINTEGER
 %token TASSIGN
@@ -38,7 +38,7 @@
 %token TSEMICOL TCOMMA
 %token<value> TBOP2 TBOP3
 %token<value> TUOP4
-%token TRETURN TEXTERN
+%token TRETURN TEXTERN TRETVOID
 %token TIF TELSE
 %token TNONE
 
@@ -88,6 +88,7 @@ simple_stmt: var_decl_with_init { $$ = $1; }
          | extern_decl
          | expr { $$ = new NExpressionStatement($1); }
          | TRETURN expr { $$ = new NReturnStatement($2); }
+         | TRETVOID expr { $$ = new NReturnStatementVoid($2); }
          ;
 
 // Note: We disallow empty statement blocks here -- actually
@@ -96,7 +97,7 @@ block : TLBRACE stmts TRBRACE
          { $$ = new NBlock; $$->statements = *$2; delete $2; }
       ;
       
-type: TINT_T; // ONLY INTEGERS ALLOWED!
+type: TINT_T | TVOID_T; // ONLY INTEGERS ALLOWED!
 
 var_init: TASSIGN expr { $$ = $2; } | { $$ = nullptr; } ;
              
