@@ -120,7 +120,7 @@ func_decl_int : TINT_T ident TLPAREN func_decl_args TRPAREN block
           ;
           
 func_decl_void : TVOID_T ident TLPAREN func_decl_args TRPAREN block 
-            { $$ = new NFunctionDeclaration($2,*$4,$6);
+            { $$ = new NFunctionDeclarationVoid($2,*$4,$6);
               delete $4;
             }
           ;

@@ -1,8 +1,15 @@
 extern int printi(int val);
 
-int do_math(int a) {
+void do_math_void(int a) {
   int x = a * 5;
+  printi(x+3);
   return_void x+3;
 }
 
-printi(do_math(8)-1);
+int do_math_int(int a){
+  int x = a * 5;
+  return x+3;
+}
+
+printi(do_math_void(8)+2);
+printi(do_math_int(8)+2);

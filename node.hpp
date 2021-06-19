@@ -331,6 +331,37 @@ public:
     virtual llvm::Value* codeGen(CodeGenContext& context) const;
 };
 
+class NFunctionDeclarationVoid : public NStatement {
+public:
+    PNODE(const NIdentifier) id;
+    NVariableList arguments;
+    PNODE(const NBlock) block;
+    NFunctionDeclarationVoid(PNODE(const NIdentifier) id,
+            const NVariableList &arguments,
+            PNODE(const NBlock) block) :
+            id(id), arguments(arguments), block(block) {
+    }
+    virtual void print() const{
+      if(nullptr==this){return;}
+      std::cout<<'['<<std::endl;
+      printName();
+      std::cout<<"id: "<<std::endl;
+        id->print();
+      std::cout<<'['<<std::endl;
+      std::cout<<"arguments:"<<std::endl;
+      for(auto elt:arguments){
+            elt->print();
+      }
+      std::cout<<']'<<std::endl;
+      std::cout<<'['<<std::endl;
+      std::cout<<"block:"<<std::endl;
+        block->print();
+      std::cout<<']'<<std::endl;
+      std::cout<<']'<<std::endl;
+    }
+    virtual llvm::Value* codeGen(CodeGenContext& context) const;
+};
+
 /// If statement, represented by a condition, an if-branch, and an else-branch
 class NIfStatement: public NStatement {
 public:

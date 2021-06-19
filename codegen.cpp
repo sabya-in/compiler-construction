@@ -250,6 +250,37 @@ llvm::Value* NFunctionDeclaration::codeGen(CodeGenContext& context) const {
     return function;
 }
 
+llvm::Value* NFunctionDeclarationVoid::codeGen(CodeGenContext& context) const {
+    std::vector<llvm::Type*> argTypes;
+    NVariableList::const_iterator it;
+    std::cerr << "Creating function: " << id->name << std::endl;
+    for (it = arguments.begin(); it != arguments.end(); it++) {
+        argTypes.push_back(context.getIntType());
+    }
+    llvm::FunctionType *ftype = llvm::FunctionType::get(
+            context.getAsVoid(),
+            llvm::makeArrayRef(argTypes), false);
+    llvm::Function *function = llvm::Function::Create(ftype, llvm::GlobalValue::InternalLinkage, id->name.c_str(), &context.module);
+    llvm::BasicBlock *bblock = llvm::BasicBlock::Create(context.MyContext, "entry", function, 0);
+
+    context.pushBlock(bblock);
+
+    llvm::Function::arg_iterator argsValues = function->arg_begin();
+    llvm::Value* argumentValue;
+
+    for (it = arguments.begin(); it != arguments.end(); it++) {
+        argumentValue = (**it).codeGen(context);
+
+        argumentValue = &*argsValues++;
+        argumentValue->setName((*it)->id->name.c_str());
+        llvm::StoreInst *inst = new llvm::StoreInst(argumentValue, context.currentLocals()[(*it)->id->name], false, context.currentBlock());
+    }
+
+    this->block->codeGen(context);
+    context.popBlock();
+    return function;
+}
+
 llvm::Value* NIfStatement::codeGen(CodeGenContext& context) const {
     NStatementList::const_iterator it;
     llvm::Value *cond = nullptr;

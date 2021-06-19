@@ -94,6 +94,9 @@ public:
     llvm::Type* getIntType() {
         return llvm::Type::getInt32Ty(this->MyContext);
     }
+    llvm::Type* getAsVoid() {
+        return llvm::Type::getVoidTy(this->MyContext);
+    }
     llvm::GenericValue runCode();
     void generateCode(CodeGenerator& root);
     std::map<std::string, llvm::Value*>& currentLocals() { return blocks.top().locals; }
