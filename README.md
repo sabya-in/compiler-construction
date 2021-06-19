@@ -24,7 +24,8 @@ and single line changes have single comment (same comment) on right hand side.
 
 ### Instructions to Run ###
 
-1. Clone repository from : 
+1. Clone repository from with "git clone https://mygit.th-deg.de/sm11312/compiler-design"
+or Clone using "git clone --branch seperate-return-types https://mygit.th-deg.de/sm11312/compiler-design"
 2. Within cloned directory open terminal
 3. command: "make" or "make" after "make clean"
 4. Edit example.txt file putting in the code you wish to run or use the one already present in the file
