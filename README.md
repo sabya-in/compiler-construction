@@ -39,10 +39,10 @@ For 8 as input in default example.txt file
 2. Void returns nothing 0 always
 3. Int returns 43 and extern printi adds 2 to that making output as 45
 
-#_______________________________________________________#
-Check example.txt for a runnable format of Input file
-The corresponding LLVM output is shown below:
-#_______________________________________________________#
+________________________________________________________________
+##Check example.txt for a runnable format of Input file
+##The corresponding sample LLVM output is shown below:
+________________________________________________________________
 sm11312@e214pc76:~/git/mytoyc-00$ cat example.txt | ./mytoyc
 Generating code...\
 Creating block\
