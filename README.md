@@ -8,7 +8,7 @@ Toy programming language for the compiler construction course. Original code is 
 2. Stud: Sabyasachi Mondal
 3. Auth: Sabyasachi.mondal@stud.th-deg.de
 
-###   Guide to implementaion nad running ###
+###   Guide to implementaion and running ###
 
 A separate data type void is implemented
 
@@ -40,8 +40,8 @@ For 8 as input in default example.txt file
 3. Int returns 43 and extern printi adds 2 to that making output as 45
 
 ________________________________________________________________
-##Check example.txt for a runnable format of Input file
-##The corresponding sample LLVM output is shown below:
+Check example.txt for a runnable format of Input file
+The corresponding sample LLVM output is shown below:
 ________________________________________________________________
 sm11312@e214pc76:~/git/mytoyc-00$ cat example.txt | ./mytoyc
 Generating code...\
