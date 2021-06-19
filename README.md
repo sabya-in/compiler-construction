@@ -4,82 +4,101 @@ Toy programming language for the compiler construction course. Original code is 
 
 # Programmierpraktikum lab
 # Extending the toy compiler to enable void functions
-Prof: Peter Faber
-Stud: Sabyasachi Mondal
-Auth: Sabyasachi.mondal@stud.th-deg.de
+1. Prof: Peter Faber
+2. Stud: Sabyasachi Mondal
+3. Auth: Sabyasachi.mondal@stud.th-deg.de
 
 ###   Guide to implementaion nad running ###
 
 A separate data type void is implemented
 
-The format of standard void as per my compiler is :
+The format of my custom void implementaion in my compiler is :
 
 void <Func_name>(<Integer_arguments>){
 	<block_statements>;
 	returnvoid <any_arbitrary_int_value>;
 }
 
+All multiline changes are within opening and closing comments : /*Sabyasachi.mondal@stud.th-deg.de*/
+and single line changes have single comment (same as above) on RHS.
+
+### Instructions to Run ###
+
+1. Clone repository from : 
+2. Within cloned directory open terminal
+3. command: "make" or "make" after "make clean"
+4. Edit example.txt file putting in the code you wish to run or use the one already present in the file
+5. Next run command : cat example.txt | ./mytoyc
+6. You should be able to get an output showing detailed execution steps and LLVM codes being churned out
+
+For example check sample output below (You can also check the image inside repository for sample output) :
+##### Most importantly we will notice in the final 3 lines of output the following
+For 8 as input in default example.txt file\
+1. Void has internal printi which returns 43
+2. Void returns nothing 0 always
+3. Int returns 43 and extern printi adds 2 to that making output as 45
+
 _______________________________________________________
 Check example.txt for a runnable format of Input file
 The corresponding LLVM output is shown below:
 _______________________________________________________
 sm11312@e214pc76:~/git/mytoyc-00$ cat example.txt | ./mytoyc
-Generating code...
-Creating block
-Generating code for 18NExternDeclaration
-Generating code for 24NFunctionDeclarationVoid
-Creating function: do_math_void
-Creating variable declaration a
-Creating block
-Generating code for 20NVariableDeclaration
-Creating variable declaration x
-Creating assignment for x
-Creating comparison operation 2
-Creating integer: 5
-Creating identifier reference: a
-Generating code for 20NExpressionStatement
-Generating code for PK11NExpression
-Creating comparison operation 0
-Creating integer: 3
-Creating identifier reference: x
-Creating method call: printi
-Generating code for 20NReturnStatementVoid
-Generating return code for PK11NExpression
-Creating comparison operation 0
-Creating integer: 3
-Creating identifier reference: x
-Generating code for 20NFunctionDeclaration
-Creating function: do_math_int
-Creating variable declaration a
-Creating block
-Generating code for 20NVariableDeclaration
-Creating variable declaration x
-Creating assignment for x
-Creating comparison operation 2
-Creating integer: 5
-Creating identifier reference: a
-Generating code for 16NReturnStatement
-Generating return code for PK11NExpression
-Creating comparison operation 0
-Creating integer: 3
-Creating identifier reference: x
-Generating code for 20NExpressionStatement
-Generating code for PK11NExpression
-Creating comparison operation 0
-Creating integer: 2
-Creating integer: 8
-Creating method call: do_math_void
-Creating method call: printi
-Generating code for 20NExpressionStatement
-Generating code for PK11NExpression
-Creating comparison operation 0
-Creating integer: 2
-Creating integer: 8
-Creating method call: do_math_int
-Creating method call: printi
-Code is generated.
-; ModuleID = 'main'
-source_filename = "main"
+Generating code...\
+Creating block\
+Generating code for 18NExternDeclaration\
+Generating code for 24NFunctionDeclarationVoid\
+Creating function: do_math_void\
+Creating variable declaration a\
+Creating block\
+Generating code for 20NVariableDeclaration\
+Creating variable declaration x\
+Creating assignment for x\
+Creating comparison operation 2\
+Creating integer: 5\
+Creating identifier reference: a\
+Generating code for 20NExpressionStatement\
+Generating code for PK11NExpression\
+Creating comparison operation 0\
+Creating integer: 3\
+Creating identifier reference: x\
+Creating method call: printi\
+Generating code for 20NReturnStatementVoid\
+Generating return code for PK11NExpression\
+Creating comparison operation 0\
+Creating integer: 3\
+Creating identifier reference: x\
+Generating code for 20NFunctionDeclaration\
+Creating function: do_math_int\
+Creating variable declaration a\
+Creating block\
+Generating code for 20NVariableDeclaration\
+Creating variable declaration x\
+Creating assignment for x\
+Creating comparison operation 2\
+Creating integer: 5\
+Creating identifier reference: a\
+Generating code for 16NReturnStatement\
+Generating return code for PK11NExpression\
+Creating comparison operation 0\
+Creating integer: 3\
+Creating identifier reference: x\
+Generating code for 20NExpressionStatement\
+Generating code for PK11NExpression\
+Creating comparison operation 0\
+Creating integer: 2\
+Creating integer: 8\
+Creating method call: do_math_void\
+Creating method call: printi\
+Generating code for 20NExpressionStatement\
+Generating code for PK11NExpression\
+Creating comparison operation 0\
+Creating integer: 2\
+Creating integer: 8\
+Creating method call: do_math_int\
+Creating method call: printi\
+Code is generated.\
+; ModuleID = 'main'\
+source_filename = "main"\
 
 define i32 @main() {
 entry:
