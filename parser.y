@@ -53,7 +53,7 @@
 %type<exprlist> call_args
 %type<block> program block
 %type<stmtlist> stmts
-%type<stmt> stmt block_stmt simple_stmt func_decl extern_decl
+%type<stmt> stmt block_stmt simple_stmt func_decl_int func_decl_void extern_decl
 %type<var_decl> var_decl_with_init var_decl
 %type<stmt> if_stmt
 %type<expr> comparison var_init
@@ -81,7 +81,7 @@ stmts : stmt { $$ = new NStatementList();
 stmt : block_stmt | simple_stmt TSEMICOL
      ;
 
-block_stmt: func_decl | if_stmt
+block_stmt: func_decl_int | func_decl_void | if_stmt
           ;
 
 simple_stmt: var_decl_with_init { $$ = $1; }
@@ -97,21 +97,29 @@ block : TLBRACE stmts TRBRACE
          { $$ = new NBlock; $$->statements = *$2; delete $2; }
       ;
       
-type: TINT_T | TVOID_T; // ONLY INTEGERS ALLOWED!
+// type: TINT_T | TVOID_T; // ONLY INTEGERS ALLOWED!
 
 var_init: TASSIGN expr { $$ = $2; } | { $$ = nullptr; } ;
              
-var_decl : type ident { $$ = new NVariableDeclaration($2); };
+var_decl : TINT_T ident { $$ = new NVariableDeclaration($2); };
 
 var_decl_with_init: var_decl var_init
                    { $$ = $1; (*$1).assignmentExpr = $2; }
                   ;
 
-extern_decl : TEXTERN type ident TLPAREN func_decl_args TRPAREN
+extern_decl : TEXTERN TINT_T ident TLPAREN func_decl_args TRPAREN
+              { $$ = new NExternDeclaration($3,*$5); delete $5;}
+              | TEXTERN TVOID_T ident TLPAREN func_decl_args TRPAREN
               { $$ = new NExternDeclaration($3,*$5); delete $5;}
             ;
 
-func_decl : type ident TLPAREN func_decl_args TRPAREN block 
+func_decl_int : TINT_T ident TLPAREN func_decl_args TRPAREN block 
+            { $$ = new NFunctionDeclaration($2,*$4,$6);
+              delete $4;
+            }
+          ;
+          
+func_decl_void : TVOID_T ident TLPAREN func_decl_args TRPAREN block 
             { $$ = new NFunctionDeclaration($2,*$4,$6);
               delete $4;
             }
