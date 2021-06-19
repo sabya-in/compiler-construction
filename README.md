@@ -19,7 +19,7 @@ void <Func_name>(<Integer_arguments>){\
 	returnvoid <any_arbitrary_int_value>;\
 }
 
-All multiline changes are within opening and closing comments :  /(*)Sabyasachi.mondal@stud.th-deg.de(*)/ 
+All multiline changes are within opening and closing comments :  *< /*Sabyasachi.mondal@stud.th-deg.de*/ >* 
 and single line changes have single comment (same comment) on right hand side.
 
 ### Instructions to Run ###
