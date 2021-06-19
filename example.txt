@@ -3,7 +3,7 @@ extern int printi(int val);
 void do_math_void(int a) {
   int x = a * 5;
   printi(x+3);
-  return_void x+3;
+  returnvoid x+3;
 }
 
 int do_math_int(int a){
