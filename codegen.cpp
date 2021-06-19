@@ -1,8 +1,9 @@
 /*
  * codegen.cpp
  *
- *  Created on: Mar 10, 2019
+ *  Created on: July 18, 2019
  *      Author: faber
+ *      Author: Sabyasachi Mondal
  */
 
 #include "codegen.hpp"
@@ -185,12 +186,14 @@ llvm::Value* NReturnStatement::codeGen(CodeGenContext& context) const {
     return nullptr;
 }
 
+/*sabyasachi.mondal@stud.th-deg.de*/
 llvm::Value* NReturnStatementVoid::codeGen(CodeGenContext& context) const {
     std::cerr << "Generating return code for " << typeid(expression).name() << std::endl;
     llvm::Value *returnValue = expression->codeGen(context);
     llvm::ReturnInst::Create(context.MyContext, nullptr, context.currentBlock());
     return nullptr;
 }
+/*sabyasachi.mondal@stud.th-deg.de*/
 
 llvm::Value* NVariableDeclaration::codeGen(
         CodeGenContext& context) const {
@@ -250,6 +253,7 @@ llvm::Value* NFunctionDeclaration::codeGen(CodeGenContext& context) const {
     return function;
 }
 
+/*sabyasachi.mondal@stud.th-deg.de*/
 llvm::Value* NFunctionDeclarationVoid::codeGen(CodeGenContext& context) const {
     std::vector<llvm::Type*> argTypes;
     NVariableList::const_iterator it;
@@ -280,6 +284,7 @@ llvm::Value* NFunctionDeclarationVoid::codeGen(CodeGenContext& context) const {
     context.popBlock();
     return function;
 }
+/*sabyasachi.mondal@stud.th-deg.de*/
 
 llvm::Value* NIfStatement::codeGen(CodeGenContext& context) const {
     NStatementList::const_iterator it;

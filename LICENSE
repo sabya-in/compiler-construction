@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2017 Loren Segal, 2020 Peter Faber
+Copyright (c) 2017 Loren Segal, 2020 Peter Faber, 2021 Sabyasachi Mondal
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -10,7 +10,9 @@ copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+copies or substantial portions of the Software. However same code is not permitted
+to be copied for the PRGAI course offered by Prof. Peter Faber and can only serve as 
+a basis for future extensions to the codebase. 
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,

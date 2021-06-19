@@ -232,6 +232,7 @@ public:
     virtual llvm::Value* codeGen(CodeGenContext& context) const;
 };
 
+/*sabyasachi.mondal@stud.th-deg.de*/
 class NReturnStatementVoid : public NStatement {
 public:
     PNODE(const NExpression) expression;
@@ -246,6 +247,7 @@ public:
         }
     virtual llvm::Value* codeGen(CodeGenContext& context) const;
 };
+/*sabyasachi.mondal@stud.th-deg.de*/
 
 class NVariableDeclaration : public NStatement {
 public:
@@ -331,6 +333,7 @@ public:
     virtual llvm::Value* codeGen(CodeGenContext& context) const;
 };
 
+/*sabyasachi.mondal@stud.th-deg.de*/
 class NFunctionDeclarationVoid : public NStatement {
 public:
     PNODE(const NIdentifier) id;
@@ -361,6 +364,7 @@ public:
     }
     virtual llvm::Value* codeGen(CodeGenContext& context) const;
 };
+/*sabyasachi.mondal@stud.th-deg.de*/
 
 /// If statement, represented by a condition, an if-branch, and an else-branch
 class NIfStatement: public NStatement {

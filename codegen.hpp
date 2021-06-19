@@ -1,8 +1,8 @@
 /*
  * codegen.h
  *
- *  Created on: Mar 10, 2019
- *      Author: faber
+ *  Created on: Jun 18, 2020
+ *      Author: faber , Sabyasachi Mondal
  */
 
 #ifndef CODEGEN_H_
@@ -94,9 +94,13 @@ public:
     llvm::Type* getIntType() {
         return llvm::Type::getInt32Ty(this->MyContext);
     }
+
+    /*sabyasachi.mondal@stud.th-deg.de*/
     llvm::Type* getAsVoid() {
         return llvm::Type::getVoidTy(this->MyContext);
     }
+    /*sabyasachi.mondal@stud.th-deg.de*/
+
     llvm::GenericValue runCode();
     void generateCode(CodeGenerator& root);
     std::map<std::string, llvm::Value*>& currentLocals() { return blocks.top().locals; }

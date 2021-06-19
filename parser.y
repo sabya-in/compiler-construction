@@ -28,7 +28,7 @@
    match our tokens.l lex file. We also define the node type
    they represent.
  */
-%token TINT_T TVOID_T
+%token TINT_T TVOID_T    										/*sabyasachi.mondal@stud.th-deg.de*/
 %token TIDENTIFIER
 %token<value> TINTEGER
 %token TASSIGN
@@ -38,7 +38,7 @@
 %token TSEMICOL TCOMMA
 %token<value> TBOP2 TBOP3
 %token<value> TUOP4
-%token TRETURN TEXTERN TRETVOID
+%token TRETURN TEXTERN TRETVOID   								/*sabyasachi.mondal@stud.th-deg.de*/
 %token TIF TELSE
 %token TNONE
 
@@ -53,7 +53,7 @@
 %type<exprlist> call_args
 %type<block> program block
 %type<stmtlist> stmts
-%type<stmt> stmt block_stmt simple_stmt func_decl_int func_decl_void extern_decl
+%type<stmt> stmt block_stmt simple_stmt func_decl_int func_decl_void extern_decl       /*sabyasachi.mondal@stud.th-deg.de*/
 %type<var_decl> var_decl_with_init var_decl
 %type<stmt> if_stmt
 %type<expr> comparison var_init
@@ -81,14 +81,14 @@ stmts : stmt { $$ = new NStatementList();
 stmt : block_stmt | simple_stmt TSEMICOL
      ;
 
-block_stmt: func_decl_int | func_decl_void | if_stmt
+block_stmt: func_decl_int | func_decl_void | if_stmt        			/*sabyasachi.mondal@stud.th-deg.de*/
           ;
 
 simple_stmt: var_decl_with_init { $$ = $1; }
          | extern_decl
          | expr { $$ = new NExpressionStatement($1); }
          | TRETURN expr { $$ = new NReturnStatement($2); }
-         | TRETVOID expr { $$ = new NReturnStatementVoid($2); }
+         | TRETVOID expr { $$ = new NReturnStatementVoid($2); }         /*sabyasachi.mondal@stud.th-deg.de*/
          ;
 
 // Note: We disallow empty statement blocks here -- actually
@@ -97,7 +97,7 @@ block : TLBRACE stmts TRBRACE
          { $$ = new NBlock; $$->statements = *$2; delete $2; }
       ;
       
-// type: TINT_T | TVOID_T; // ONLY INTEGERS ALLOWED!
+// type: TINT_T | TVOID_T; // ONLY INTEGERS ALLOWED!					/*sabyasachi.mondal@stud.th-deg.de*/
 
 var_init: TASSIGN expr { $$ = $2; } | { $$ = nullptr; } ;
              
@@ -107,6 +107,7 @@ var_decl_with_init: var_decl var_init
                    { $$ = $1; (*$1).assignmentExpr = $2; }
                   ;
 
+/*sabyasachi.mondal@stud.th-deg.de*/
 extern_decl : TEXTERN TINT_T ident TLPAREN func_decl_args TRPAREN
               { $$ = new NExternDeclaration($3,*$5); delete $5;}
               | TEXTERN TVOID_T ident TLPAREN func_decl_args TRPAREN
@@ -124,6 +125,7 @@ func_decl_void : TVOID_T ident TLPAREN func_decl_args TRPAREN block
               delete $4;
             }
           ;
+/*sabyasachi.mondal@stud.th-deg.de*/
 
 func_decl_args:  /*blank*/  { $$ = new NVariableList; }
           | var_decl { $$ = new NVariableList;
