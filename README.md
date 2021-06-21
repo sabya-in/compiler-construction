@@ -25,7 +25,7 @@ returnvoid recieves statement nodes but simply ignores them and return a nullpoi
 
 The Void function declaration uses the same base class or Node as int, but the difference is that we create a different function type.
 
-We can obtain a different void function type in same way as integer by using the LLVM api to get Void type (see: https://llvm.org/doxygen/classllvm_1_1Type.html#a6e20e76960d952de088354cbcd14c3ab)
+We can obtain a different void function type in same way as integer by using the LLVM api to get Void type (see: https://llvm.org/doxygen/classllvm_1_1Type.html#a6e20e76960d952de088354cbcd14c3ab , and also the course notes).
 
 The format of my custom void implementaion in my compiler is :
 
@@ -38,7 +38,7 @@ All multiline changes are within opening and closing comments :  /*Sabyasachi.mo
 and single line changes have single comment (same comment) on right hand side.
 
 See sample output for the example.txt file:
-![Output for example.txt]('https://mygit.th-deg.de/sm11312/compiler-design/-/raw/seperate-return-types/Finally_My_Compiler_Running!.png?raw=true')
+![Output for example.txt]('Finally_My_Compiler_Running!.png')
 
 ### Instructions to Run ###
 
