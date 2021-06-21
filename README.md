@@ -37,8 +37,7 @@ void <Func_name>(<Integer_arguments>){\
 All multiline changes are within opening and closing comments :  /*Sabyasachi.mondal@stud.th-deg.de*/
 and single line changes have single comment (same comment) on right hand side.
 
-See sample output for the example.txt file:
-![https://mygit.th-deg.de/sm11312/compiler-design/-/raw/seperate-return-types/Finally_My_Compiler_Running!.png]('https://mygit.th-deg.de/sm11312/compiler-design/-/raw/seperate-return-types/Finally_My_Compiler_Running!.png')
+See sample output for the example.txt file: https://mygit.th-deg.de/sm11312/compiler-design/-/raw/seperate-return-types/Finally_My_Compiler_Running!.png
 
 ### Instructions to Run ###
 
