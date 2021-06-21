@@ -4,6 +4,7 @@ Toy programming language for the compiler construction course. Original code is 
 
 # Programmierpraktikum lab
 1. Professor: Peter Faber
+
 # Extending the toy compiler to enable void functions
 1. Student: Sabyasachi Mondal
 2. Author: Sabyasachi.mondal@stud.th-deg.de
@@ -37,7 +38,7 @@ All multiline changes are within opening and closing comments :  /*Sabyasachi.mo
 and single line changes have single comment (same comment) on right hand side.
 
 See sample output for the example.txt file:
-![alt text]('https://mygit.th-deg.de/sm11312/compiler-design/-/blob/seperate-return-types/Finally_My_Compiler_Running!.png')
+![Output for example.txt]('https://mygit.th-deg.de/sm11312/compiler-design/-/raw/seperate-return-types/Finally_My_Compiler_Running!.png?raw=true')
 
 ### Instructions to Run ###
 
