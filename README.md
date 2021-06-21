@@ -3,14 +3,28 @@
 Toy programming language for the compiler construction course. Original code is taken from the tutorial by L. Segal at http://gnuu.org/2009/09/18/writing-your-own-toy-compiler. Original code at github: https://github.com/lsegal/my_toy_compiler.
 
 # Programmierpraktikum lab
+1. Professor: Peter Faber
 # Extending the toy compiler to enable void functions
-1. Prof: Peter Faber
-2. Stud: Sabyasachi Mondal
-3. Auth: Sabyasachi.mondal@stud.th-deg.de
+1. Student: Sabyasachi Mondal
+2. Author: Sabyasachi.mondal@stud.th-deg.de
 
-###   Guide to implementaion and running ###
+###   Guide to implementaion ###
 
-A separate data type void is implemented
+We first analyze exactly how the int function works it's similar to our Void except the return rule which returns void and the function type.
+
+We first introduce changes to the tokens add two tokens "Void" and "returnvoid" . These form our lexical construct of the function.
+
+To handle our newly introduced tokens we add two seperate grammar rules to handle the two tokens till common rules for the statements (statement will be same for both void and int).
+
+Once the grammar rules are handled we must tell our compiler what to do once they encounter "returnvoid" or "Void" that fits our grammar.
+
+To do just that we make changes to codegen.cpp where we introduce seperate handler function one for Void and another for returnvoid (they are exactly similar to their int counterpart except what they do). The codegen creates the nodes which are to be passed to LLVM backend.
+
+returnvoid recieves statement nodes but simply ignores them and return a nullpointer which is of void return type.
+
+The Void function declaration uses the same base class or Node as int, but the difference is that we create a different function type.
+
+We can obtain a different void function type in same way as integer by using the LLVM api to get Void type (see: https://llvm.org/doxygen/classllvm_1_1Type.html#a6e20e76960d952de088354cbcd14c3ab)
 
 The format of my custom void implementaion in my compiler is :
 
@@ -21,6 +35,9 @@ void <Func_name>(<Integer_arguments>){\
 
 All multiline changes are within opening and closing comments :  /*Sabyasachi.mondal@stud.th-deg.de*/
 and single line changes have single comment (same comment) on right hand side.
+
+See sample output for the example.txt file:
+![alt text]('https://mygit.th-deg.de/sm11312/compiler-design/-/blob/seperate-return-types/Finally_My_Compiler_Running!.png')
 
 ### Instructions to Run ###
 
