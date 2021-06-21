@@ -52,9 +52,9 @@ or Clone using "git clone --branch seperate-return-types https://mygit.th-deg.de
 For example check sample output below (You can also check the image inside repository for sample output) :
 #### Most importantly we will notice in the final 3 lines of output the following ####
 For 8 as input in default example.txt file
-1. Void has internal printi which returns 43
-2. Void returns nothing 0 always
-3. Int returns 43 and extern printi adds 2 to that making output as 45
+##### 1. Void has internal printi which returns 43
+##### 2. Void returns nothing 0 always
+##### 3. Int returns 43 and extern printi adds 2 to that making output as 45
 
 ________________________________________________________________
 Check example.txt for a runnable format of Input file
