@@ -38,7 +38,7 @@ All multiline changes are within opening and closing comments :  /*Sabyasachi.mo
 and single line changes have single comment (same comment) on right hand side.
 
 See sample output for the example.txt file:
-![Output for example.txt]('Finally_My_Compiler_Running!.png')
+![https://mygit.th-deg.de/sm11312/compiler-design/-/raw/seperate-return-types/Finally_My_Compiler_Running!.png]('https://mygit.th-deg.de/sm11312/compiler-design/-/raw/seperate-return-types/Finally_My_Compiler_Running!.png')
 
 ### Instructions to Run ###
 
