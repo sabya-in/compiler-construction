@@ -34,6 +34,8 @@ void <Func_name>(<Integer_arguments>){\
 	returnvoid <any_arbitrary_int_value>;\
 }
 
+##### NOTE: The compiler's lexicon is not like C we need to provide a return type with any values even for Void but it is ignored and returns void like C
+
 All multiline changes are within opening and closing comments :  /*Sabyasachi.mondal@stud.th-deg.de*/
 and single line changes have single comment (same comment) on right hand side.
 
@@ -51,10 +53,10 @@ or Clone using "git clone --branch seperate-return-types https://mygit.th-deg.de
 
 For example check sample output below (You can also check the image inside repository for sample output) :
 #### Most importantly we will notice in the final 3 lines of output the following ####
-For 8 as input in default example.txt file
-##### 1. Void has internal printi which returns 43
+##### For 8 as input to function in default example.txt file (it conatins two function one int one void for comparison)
+##### 1. Void has internal printi-function which returns 43
 ##### 2. Void returns nothing 0 always
-##### 3. Int returns 43 and extern printi adds 2 to that making output as 45
+##### 3. Int returns 43 and extern printi-function adds 2 to that making output as 45
 
 ________________________________________________________________
 Check example.txt for a runnable format of Input file
