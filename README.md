@@ -38,7 +38,7 @@ void <Func_name>(<Integer_arguments>){\
 
 ##### NOTE: The compiler's lexicon is not like C we need to provide a return type with any values even for Void but it is ignored and returns void like C
 
-All multiline changes are within opening and closing comments :  /*Sabyasachi.mondal@stud.th-deg.de*/
+All multiline changes are within opening and closing comments :  /&ast;Sabyasachi.mondal@stud.th-deg.de&ast;/
 and single line changes have single comment (same comment) on right hand side.
 
 See sample output for the example.txt file: https://mygit.th-deg.de/sm11312/compiler-design/-/raw/seperate-return-types/Finally_My_Compiler_Running!.png
@@ -53,7 +53,7 @@ or Clone using "git clone --branch seperate-return-types https://mygit.th-deg.de
 5. Next run command : cat example.txt | ./mytoyc
 6. You should be able to get an output showing detailed execution steps and LLVM codes being churned out
 
-### Process to run is exactly the same as the source-code of mytoyc , and I have a running version in PC-76 
+### Process to run is exactly the same as the source-code of mytoyc.
 
 For example check sample output below (You can also check the image inside repository for sample output) :
 #### Most importantly we will notice in the final 3 lines of output the following ####
