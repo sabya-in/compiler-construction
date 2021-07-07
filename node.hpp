@@ -1,3 +1,4 @@
+/*templates and definitions for our nodes*/
 #ifndef _NODE_H_
 #define _NODE_H_
 
