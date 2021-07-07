@@ -15,9 +15,9 @@
 "//".*$                         ;
 "extern"                        {return TEXTERN;}
 "return"                        {return TRETURN;}
-"returnvoid"                    {return TRETVOID;}                      /*sabyasachi.mondal@stud.th-deg.de*/
+"returnvoid"                    {return TRETVOID;}                      /*return keyword: sabyasachi.mondal@stud.th-deg.de*/
 "int"                           {return TINT_T;}
-"void"                          {return TVOID_T;}                       /*sabyasachi.mondal@stud.th-deg.de*/
+"void"                          {return TVOID_T;}                       /*void keyword: sabyasachi.mondal@stud.th-deg.de*/
 "if"                            {return TIF;}
 "else"                          {return TELSE;}
 [a-zA-Z_][a-zA-Z0-9_]*          {return TIDENTIFIER;}
