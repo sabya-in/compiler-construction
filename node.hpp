@@ -1,4 +1,3 @@
-/*templates and definitions for our nodes*/
 #ifndef _NODE_H_
 #define _NODE_H_
 
@@ -10,6 +9,7 @@
 
 /// possible binary expression operators:
 // plus, minus, multiplication, division
+/*templates and definitions for our nodes*/
 typedef enum opEnum {
     PLUS, MINUS, MUL, DIV
 } BinOp;
