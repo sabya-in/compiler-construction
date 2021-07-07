@@ -107,7 +107,7 @@ var_decl_with_init: var_decl var_init
                    { $$ = $1; (*$1).assignmentExpr = $2; }
                   ;
 
-/*sabyasachi.mondal@stud.th-deg.de*/
+/*    sabyasachi.mondal@stud.th-deg.de     */
 extern_decl : TEXTERN TINT_T ident TLPAREN func_decl_args TRPAREN
               { $$ = new NExternDeclaration($3,*$5); delete $5;}
               | TEXTERN TVOID_T ident TLPAREN func_decl_args TRPAREN
@@ -125,7 +125,7 @@ func_decl_void : TVOID_T ident TLPAREN func_decl_args TRPAREN block
               delete $4;
             }
           ;
-/*sabyasachi.mondal@stud.th-deg.de*/
+/*     sabyasachi.mondal@stud.th-deg.de    */
 
 func_decl_args:  /*blank*/  { $$ = new NVariableList; }
           | var_decl { $$ = new NVariableList;
